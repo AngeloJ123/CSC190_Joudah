@@ -24,14 +24,16 @@ public class Board extends Application {
 	
 	public static void handleImages(Stage box, game g, Image T,Scene Board, Pane p) {
 		VBox pane = new VBox();pane.setPadding(new Insets(5,5,5,5));
-		RadioButton r1 = new RadioButton("Queen"); RadioButton r2 = new RadioButton("Rook"); RadioButton r3 = new RadioButton("Knight"); RadioButton r4 = new RadioButton("Bishop");RadioButton r5 = new RadioButton("Pawn");
+		RadioButton r1 = new RadioButton("Queen"); RadioButton r2 = new RadioButton("Rook"); RadioButton r3 = new RadioButton("Knight"); RadioButton r4 = new RadioButton("Bishop");RadioButton r5 = new RadioButton("Pawn");RadioButton r6 = new RadioButton("King");
 		ToggleGroup group = new ToggleGroup();
-		r1.setToggleGroup(group); r2.setToggleGroup(group); r3.setToggleGroup(group); r4.setToggleGroup(group);pane.getChildren().addAll(r1,r2,r3,r4,r5);
+		r1.setToggleGroup(group); r2.setToggleGroup(group); r3.setToggleGroup(group); r4.setToggleGroup(group);pane.getChildren().addAll(r1,r2,r3,r4,r5,r6);
 		r1.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof QueenPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof QueenPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});
 		r2.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof RookPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof RookPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});
 		r3.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof KnightPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof KnightPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});
 		r4.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof BishopPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof BishopPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});
-		r5.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof PawnPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof PawnPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});		
+		r5.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof PawnPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof PawnPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});
+		r6.setOnAction(e -> {for(Piece x:g.Whites) {if(x instanceof KingPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}}for(Piece x:g.Blacks) {if(x instanceof KingPiece) {ImageView I = new ImageView();I.setImage(T);x.I = I;x.setImageIn(p);x.updateImageLocation();}};box.setScene(Board);});		
+
 		box.setTitle("ImageSel");
 		Scene x = new Scene(pane,400,400); 
 		box.setScene(x);
